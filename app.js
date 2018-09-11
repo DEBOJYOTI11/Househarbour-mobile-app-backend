@@ -21,6 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/listings', listingsRouter);
+app.get('*',(request,response)=>{
+  response.json({"status":404,"msg":"url not found"})
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -11,7 +11,14 @@ let connection = mysql.createConnection({
 });
 
 connection.connect((err)=>{
-    console.log("Error occurred while connecting to db")
+    if(err){
+        console.log("Error occurred while connecting to db")
+        throw err;
+    }
+    setInterval(()=> {
+        connection.query('SELECT 1');
+    }, 5000);
+        
 });
 
 module.exports = connection;

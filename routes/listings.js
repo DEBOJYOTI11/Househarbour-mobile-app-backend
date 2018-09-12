@@ -17,8 +17,12 @@ let getData = (query) => {
   })
 }
 
+
 /* GET listing. */
 router.get('/', async (request, response, next)=> {
+
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "X-Requested-With");
 
     console.log(`in /listings`);
     let query = `select * from hostels`;
